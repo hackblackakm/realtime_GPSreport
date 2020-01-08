@@ -23,7 +23,7 @@ class RxThread(threading.Thread):
             if self.ser.inWaiting():
                 temp_str = self.ser.readline().decode('utf8')
                 #print(temp_str.encode())
-                if temp_str[0] == '1':
+                if temp_str[0] == self.sys_state['mac_address']:
                     self.sys_state['received_m'] = temp_str[0]
                     print(self.sys_state['received_m'])
                     self.sys_state['transmit_flag'] = 1
